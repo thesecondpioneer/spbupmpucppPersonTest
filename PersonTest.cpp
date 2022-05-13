@@ -307,7 +307,9 @@ void PersonList::remove(vector<double> &ulim, vector<double> &dlim, string cname
             current->next = temp;
             this->s--;
         }
-        current = current->next;
+        else {
+            current = current->next;
+        }
     }
 }
 
