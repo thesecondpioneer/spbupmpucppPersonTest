@@ -34,7 +34,8 @@ int main() {
                 break;
             }
             case 1:{
-                cout << "-clear - Clear the list." << endl <<
+                cout <<
+                "-clear - Clear the list." << endl <<
                 "-load <file path> - Load the list from the file." << endl <<
                 "-write - See the whole list" << endl <<
                 "-save <file path> - Save the list to the file." <<  endl <<
@@ -101,7 +102,8 @@ int main() {
                 int ctnum;
                 double e;
                 cout << ">Enter the test subject's name. " <<
-                    "Ultimately, go with \"-\", if you don't want to search by this parameter." << endl << ">";
+                     "Ultimately, go with \"-\", if you don't want to search by this parameter." << endl << ">";
+                cin >> cname;
                 while(!cin){                             //Filtering all the unwanted user inputs
                     cin.clear();
                     cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -110,7 +112,8 @@ int main() {
                     cin >> cname;
                 }
                 cout << ">Enter the test number." <<
-                    "Ultimately, go with \"-1\", if you don't want to search by this parameter." << endl << ">";
+                     "Ultimately, go with \"-1\", if you don't want to search by this parameter." << endl << ">";
+                cin >> ctnum;
                 while(!cin){                             //Filtering all the unwanted user inputs
                     cin.clear();
                     cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -120,8 +123,9 @@ int main() {
                 }
                 if((ctnum >=0) and (ctnum <=getAttrSize()-1) and (getAttrNum(ctnum)!=0)) {
                     cout << ">Enter the upper limiter vector (" << getAttrNum(ctnum) << " elements separated by space)." <<
-                        "Ultimately, go with \"-1\", if you don't want to search by this parameter." << endl << ">";
+                         "Ultimately, go with \"-1\", if you don't want to search by this parameter." << endl << ">";
                     for(int i = 0; i < getAttrNum(ctnum); i++){
+                        cin >> e;
                         while(!cin){                             //Filtering all the unwanted user inputs
                             cin.clear();
                             cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -136,6 +140,7 @@ int main() {
                     cout << ">Enter the lower limiter vector (" << getAttrNum(ctnum) << " elements separated by space)." <<
                          "Ultimately, go with \"-1\", if you don't want to search by this parameter." << endl << ">";
                     for(int i = 0; i < getAttrNum(ctnum); i++){
+                        cin >> e;
                         while(!cin){                             //Filtering all the unwanted user inputs
                             cin.clear();
                             cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -161,11 +166,14 @@ int main() {
                 break;
             }
             case 8:{
+                ulim.resize(0);
+                dlim.resize(0);
                 string cname;
                 int ctnum;
                 double e;
                 cout << ">Enter the test subject's name. " <<
                      "Ultimately, go with \"-\", if you don't want to search by this parameter." << endl << ">";
+                cin >> cname;
                 while(!cin){                             //Filtering all the unwanted user inputs
                     cin.clear();
                     cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -175,6 +183,7 @@ int main() {
                 }
                 cout << ">Enter the test number." <<
                      "Ultimately, go with \"-1\", if you don't want to search by this parameter." << endl << ">";
+                cin >> ctnum;
                 while(!cin){                             //Filtering all the unwanted user inputs
                     cin.clear();
                     cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -186,6 +195,7 @@ int main() {
                     cout << ">Enter the upper limiter vector (" << getAttrNum(ctnum) << " elements separated by space)." <<
                          "Ultimately, go with \"-1\", if you don't want to search by this parameter." << endl << ">";
                     for(int i = 0; i < getAttrNum(ctnum); i++){
+                        cin >> e;
                         while(!cin){                             //Filtering all the unwanted user inputs
                             cin.clear();
                             cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -200,6 +210,7 @@ int main() {
                     cout << ">Enter the lower limiter vector (" << getAttrNum(ctnum) << " elements separated by space)." <<
                          "Ultimately, go with \"-1\", if you don't want to search by this parameter." << endl << ">";
                     for(int i = 0; i < getAttrNum(ctnum); i++){
+                        cin >> e;
                         while(!cin){                             //Filtering all the unwanted user inputs
                             cin.clear();
                             cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -218,7 +229,7 @@ int main() {
                     cout << "Nothing was deleted from the list." << endl;
                 }
                 else{
-                    cout << "Successfully deleted " << chck-list.size() << "elements." << endl;
+                    cout << "Successfully deleted " << chck-list.size() << " elements." << endl;
                 }
                 break;
             }
